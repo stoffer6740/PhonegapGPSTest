@@ -32,23 +32,12 @@ var getCurrentPosition = function() {
          		if (results[0]) 
           		{
           			var location = results[0].formatted_address;
-          			//alert(location);
           			
           			$('#lblLatitude').html("Latitude: " +latitude);
           			$('#lblLongitude').html("Longitude: " +longitude);
-          			$('#lblAccuracy').html("Accuracy: " +accuracy +"m");
+          			$('#lblAccuracy').html("Accuracy: " +accuracy +" metres");
           			$('#lblLocation').html("Location.. <br/>" +location);
-          			
-            		// var arrAddress = results[0].address_components;
-            		// iterate through address_component array
-            		// $.each(arrAddress, function (i, address_component){              		
-              			// if (address_component.types[0] == "locality"){           		
-              	     	// console.log(address_component.long_name); // city
-                		// alert(address_component.long_name);
-                		// return false; // break
-              	// }
-            // });
-          } else {
+          		} else {
             alert("No results found");
             $('#lblLatitude').html("");
           }
@@ -59,15 +48,17 @@ var getCurrentPosition = function() {
       });
 	};
 
-	var failure = function (error) 
-	{
-  		alert('ERROR(' + error.code + '): ' + error.message);
-  		$('#lblLatitude').html("");
-  		$('#lblLongitude').html("");
-    	$('#lblAccuracy').html("");
-    	$('#lblLocation').html("");
-	};
+	var failure = function (error) {
+        alert("Error " + error.message);
+        $('#lblLatitude').html("");
+        $('#lblLongitude').html("");
+        $('#lblAccuracy').html("");
+        $('#lblLocation').html("");
+    };
 	
-	navigator.geolocation.getCurrentPosition(success, failure, options);
-	
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, failure, options);
+    } else {
+        alert("Geolocation is not supported");
+    }	
 };

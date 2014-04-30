@@ -10,10 +10,10 @@
 	font-size: 1.1em;
 	font-weight: bold;
 	text-decoration: none;
-	padding: 0.7em 0.1em;	
+	padding: 0.7em 0.1em;
 	clear: none;
 	float: left;
-	width: 25%; 
+	width: 25%;
 	margin: 6px 3px 3px;
 }
 
@@ -25,14 +25,14 @@ code
 }
 
 h2 
-{ 
-	border-bottom: 1px solid #ccc;
+{
 	padding-bottom: 0.25em;
 	color: #e87a12;
 	font-size: 1.4em;
 	font-weight: bold;
 	margin: 1.3em 0px 0.8em 0px;
 	text-shadow: #FFFFFF 0px 1px 1px;
+	border-bottom: 1px solid #ccc;
 }
 
 label {
